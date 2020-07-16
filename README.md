@@ -1,42 +1,51 @@
-# Slim Framework 4 Skeleton Application
+# Book Repository API
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+Test application for the position of Backend developer at Advicefront
+(https://advicefront.com)
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
+This API is running on the PHP Slim framework (http://www.slimframework.com/).
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+It returns information about a resource named `Book`. Each book has the following attributes:
 
-## Install the Application
-
-Run this command from the directory in which you want to install your new Slim Framework application.
-
-```bash
-composer create-project slim/slim-skeleton [my-app-name]
+```
+id
+title
+isbn
+coverUrl
+description
 ```
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+The API is incomplete and has some conceptual errors. Can you find them?
 
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
+### List Books
+
+Requests can be made directly to the `/books` endpoint via a GET request.
+You can also send a parameter `title` to filter the books you receive based on their title. (`/books?title=Action`)
+
+### View one Book
+
+To receive information about one single book, make a GET request to `/books/{id}` where `{id}` is the ID of the book you wish to read on.
+
+### How to run
+
+Minimum Requirements: PHP 7.2
+
+
+After you have cloned the repository to your local environment, install all the needed packages with composer running:
+
+```bash
+cd advicefront-be-test
+composer install
+```
 
 To run the application in development, you can run these commands 
 
 ```bash
-cd [my-app-name]
 composer start
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
+Open `http://localhost:8080` in your browser.
 
-Run this command in the application directory to run the test suite
+That's it!
 
-```bash
-composer test
-```
-
-That's it! Now go build something cool.
+Good luck!
