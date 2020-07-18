@@ -13,10 +13,11 @@ class ListBooksAction extends BookAction
     protected function action(): Response
     {
         $books = $this->bookRepository->findAll();
+
         if (isset($this->request->getQueryParams()['title'])) {
-            $books = array_filter($books, function ($v) {
+            $books = array_values(array_filter($books, function ($v) {
                 return substr_count($v['title'], $this->request->getQueryParams()['title']) > 0;
-            });
+            }));
         }
 
         $this->logger->info("Book list was viewed.");

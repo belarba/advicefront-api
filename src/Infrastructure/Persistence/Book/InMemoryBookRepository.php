@@ -39,6 +39,7 @@ class InMemoryBookRepository implements BookRepository
         foreach ($this->books as $book) {
             $books[] = [
                 'id' => $book->getId(),
+                'coverUrl' => $book->getCoverURL(),
                 'title' => $book->getTitle()
             ];
         }
